@@ -1,0 +1,9 @@
+Microsoft® SQL Server® 2012 Feature Pack 
+Extension til Powershell 
+Nedenstående hentes og installeres fra:
+https://www.microsoft.com/en-us/download/details.aspx?id=29065
+
+Microsoft® System CLR Types for Microsoft® SQL Server® 2012
+Microsoft® SQL Server® 2012 Shared Management Objects
+Microsoft® Windows PowerShell Extensions for Microsoft® SQL Server® 2012
+i nævnte rækkefølge
