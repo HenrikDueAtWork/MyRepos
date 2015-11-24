@@ -13,5 +13,6 @@ declare @varTest varchar(max)
 select @varTest = isnull(@varTest+',','')+Name from ods.td_Mxxxx_dimension
 select @varTest = isnull(@varTest+',','')+'test'
 --select name from syscolumns
-select @varTest
+--select @varTest
 print @varTest
+exec sp_columns @table_name = 'td_Mxxxx_dimension' 
