@@ -72,3 +72,58 @@ insert into @OrganizationalStructures values
  INNER JOIN @OrganizationalStructures child ON child.ParentUnitID = parent.BusinessUnitID
 )
 SELECT * FROM Recursive_CTE ORDER BY Hierarchy
+
+/*
+;with recur_ea as (
+	select 
+		child.SourceRef,
+		child.DestRef,
+		CAST('>> ' as varchar(100)) LVL,
+		--child.SourceRef Hierarchy,
+		1 recur_lvl
+	from @ea child
+	where  periode=201510
+	union all
+	select
+	child.SourceRef,
+	child.DestRef,
+    CAST('>> ' + LVL as varchar(100)) AS LVL,
+	--Hierarchy + ':' + child.SourceRef Hierarchy,
+	recur_lvl + 1 AS recur_lvl
+	from recur_ea parent
+	join @ea child on child.DestRef=parent.SourceRef
+
+) select * from recur_ea
+
+declare @OrganizationalStructures table (
+ BusinessUnitID smallint identity(1,1),
+ BusinessUnit varchar(100) Not Null,
+ ParentUnitID smallint)
+
+;WITH Recursive_CTE AS (
+ SELECT
+  child.BusinessUnitID,
+  CAST(child.BusinessUnit as varchar(100)) BusinessUnit,
+  CAST(child.ParentUnitID as SmallInt) ParentUnitID,
+  CAST(NULL as varchar(100)) ParentUnit,
+  CAST('>> ' as varchar(100)) LVL,
+  CAST(child.BusinessUnitID as varchar(100)) Hierarchy,
+  1 AS RecursionLevel
+ FROM @OrganizationalStructures child
+ WHERE BusinessUnitID = 1
+
+ UNION ALL
+
+ SELECT
+  child.BusinessUnitID,
+  CAST(LVL + child.BusinessUnit as varchar(100)) AS BusinessUnit,
+  child.ParentUnitID,
+  parent.BusinessUnit ParentUnit,
+  CAST('>> ' + LVL as varchar(100)) AS LVL,
+  CAST(Hierarchy + ':' + CAST(child.BusinessUnitID as varchar(100)) as varchar(100)) Hierarchy,
+  RecursionLevel + 1 AS RecursionLevel
+ FROM Recursive_CTE parent
+ INNER JOIN @OrganizationalStructures child ON child.ParentUnitID = parent.BusinessUnitID
+)
+SELECT * FROM Recursive_CTE ORDER BY Hierarchy
+*/
