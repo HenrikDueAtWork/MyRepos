@@ -27,5 +27,20 @@
         <div id="Footer">Footer</div>
     </div>
     </form>
+
+<script>
+function OpenConfirmDialog()
+{
+    if (confirm('No Rule Type Ids found for This Rule.'))
+    {
+       //True .. do something
+    }
+    else
+    {
+       //False .. do something
+    }
+}
+
+</script>
 </body>
 </html>
