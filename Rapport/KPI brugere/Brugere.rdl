@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="KpiBrugere">
+      <DataSourceReference>srcKpiBrugere</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>5ad0a850-2a61-4bfe-8dcd-8c6bf9d91a10</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <SharedDataSet>
+        <SharedDataSetReference>dsKpiBrugere</SharedDataSetReference>
+      </SharedDataSet>
+      <Fields>
+        <Field Name="bruger_id">
+          <DataField>bruger_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="brugernavn">
+          <DataField>brugernavn</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="netid">
+          <DataField>netid</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="email">
+          <DataField>email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="administrator">
+          <DataField>administrator</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="rolle">
+          <DataField>rolle</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="skriveadgang">
+          <DataField>skriveadgang</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="deCentralAdministrator">
+          <DataField>deCentralAdministrator</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="kanSeKpi">
+          <DataField>kanSeKpi</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>9.76722cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>4.03458cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>4.74014cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Bruger </Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Email</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Redigeringsrettigheder</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Se KPI'r</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="brugernavn">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!brugernavn.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>brugernavn</rd:DefaultName>
+                          <ActionInfo>
+                            <Actions>
+                              <Action>
+                                <Drillthrough>
+                                  <ReportName>Kpi</ReportName>
+                                  <Parameters>
+                                    <Parameter Name="brugerid">
+                                      <Value>=Fields!bruger_id.Value</Value>
+                                    </Parameter>
+                                    <Parameter Name="valgtBrugerid">
+                                      <Value>=Fields!bruger_id.Value</Value>
+                                    </Parameter>
+                                  </Parameters>
+                                </Drillthrough>
+                              </Action>
+                            </Actions>
+                          </ActionInfo>
+                          <ToolTip>Klik for at se KPI rettigheder</ToolTip>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="email">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!email.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>email</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="skriveadgang">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIf(Fields!skriveadgang.Value,"Ja","Nej")</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>skriveadgang</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="kanSeKpi">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIf(Fields!kanSeKpi.Value,"Ja","Nej")</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>kanSeKpi</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <KeepTogether>true</KeepTogether>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>0.94932cm</Top>
+            <Height>1.2cm</Height>
+            <Width>21.04194cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Image Name="Image1">
+            <Source>Embedded</Source>
+            <Value>DSB</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.31432cm</Top>
+            <Left>29.01103cm</Left>
+            <Height>1.5cm</Height>
+            <Width>1.5cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+        </ReportItems>
+        <Height>1.26041in</Height>
+        <Style />
+      </Body>
+      <Width>12.95659in</Width>
+      <Page>
+        <PageHeight>21cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <EmbeddedImages>
+    <EmbeddedImage Name="DSB">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Variables>
+    <Variable Name="repBrugerid">
+      <Value />
+      <Writable>true</Writable>
+    </Variable>
+  </Variables>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>067e4278-995e-4e8e-a1d0-92133b5c2964</rd:ReportID>
+</Report>

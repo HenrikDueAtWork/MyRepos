@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>srcKpiBrugere</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@kpiid">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        *
+FROM            (SELECT        kpi.Retning, 'R' kilde, substring(CONVERT(varchar(10), per.år), 1, 4) AS periode, kpi.Kpi_id, CONVERT(decimal(20, 2), vaerdi) vaerdi, 
+                                                    per.maanedsnavn
+                          FROM            dbo.realiseret rel JOIN
+                                                    dbo.periode per ON rel.periode_id = per.periode_id AND per.år = 2016 AND kpi_id = @kpiid AND rel.periodevisning_id = 1 JOIN
+                                                    dbo.Kpi ON rel.kpi_id = Kpi.Kpi_id
+                          UNION ALL
+                          SELECT        kpi.retning 'Retning', 'M' kilde, substring(CONVERT(varchar(10), per.år), 1, 4) periode, kpi.kpi_id, CONVERT(decimal(20, 2), vaerdi) vaerdi, 
+                                                   per.maanedsnavn
+                          FROM            dbo.Maaltal maal JOIN
+                                                   dbo.periode per ON maal.periode_id = per.periode_id AND per.år = 2016 AND maal.kpi_id = @kpiid AND maal.periodevisning_id = 1 JOIN
+                                                   dbo.Kpi ON maal.kpi_id = Kpi.Kpi_id) x PIVOT (max(x.vaerdi) FOR maanedsnavn IN (Januar, Februar, Marts, April, Maj, Juni, Juli, August, September, 
+                         Oktober, November, December)) piv
+ORDER BY kilde DESC</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Retning">
+        <DataField>Retning</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="kilde">
+        <DataField>kilde</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="periode">
+        <DataField>periode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="kpi_id">
+        <DataField>Kpi_id</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Januar">
+        <DataField>Januar</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Februar">
+        <DataField>Februar</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Marts">
+        <DataField>Marts</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="April">
+        <DataField>April</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Maj">
+        <DataField>Maj</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Juni">
+        <DataField>Juni</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Juli">
+        <DataField>Juli</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="August">
+        <DataField>August</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="September">
+        <DataField>September</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Oktober">
+        <DataField>Oktober</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="November">
+        <DataField>November</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="December">
+        <DataField>December</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>srcKpiBrugere</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@brugerid">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Int32</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        bkr.kpi_id, br.bruger_id, CONVERT(nvarchar(10), Kpi.Kpi_id) + ' ' + Kpi.KPI_Navn AS KPInavn, br.brugernavn
+FROM            Bruger AS br INNER JOIN
+                         Bruger_KPI_relation AS bkr ON br.bruger_id = bkr.bruger_id INNER JOIN
+                         Kpi ON bkr.kpi_id = Kpi.Kpi_id
+WHERE        (br.bruger_id = @brugerid)
+ORDER BY Kpi.Kpi_id</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="bruger_id">
+        <DataField>bruger_id</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="KPInavn">
+        <DataField>KPInavn</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Kpi_id">
+        <DataField>kpi_id</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="brugernavn">
+        <DataField>brugernavn</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

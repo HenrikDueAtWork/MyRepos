@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>srcKpiBrugere</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@kpiid">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        *
+FROM            (SELECT        '2016' AS periode, kpi_id, CONVERT(decimal(20, 2), vaerdi) vaerdi, per.maanedsnavn
+                          FROM            dbo.maaltal maal JOIN
+                                                    dbo.periode per ON maal.periode_id = per.periode_id AND per.år = 2016
+                          WHERE        kpi_id = @kpiid AND maal.periodevisning_id = 1) x PIVOT (max(vaerdi) FOR maanedsnavn IN (Januar, Februar, Marts, April, Maj, Juni, Juli, August, 
+                         September, Oktober, November, December)) piv</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="periode">
+        <DataField>periode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="kpi_id">
+        <DataField>kpi_id</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Januar">
+        <DataField>Januar</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Februar">
+        <DataField>Februar</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Marts">
+        <DataField>Marts</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="April">
+        <DataField>April</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Maj">
+        <DataField>Maj</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Juni">
+        <DataField>Juni</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Juli">
+        <DataField>Juli</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="August">
+        <DataField>August</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="September">
+        <DataField>September</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Oktober">
+        <DataField>Oktober</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="November">
+        <DataField>November</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="December">
+        <DataField>December</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

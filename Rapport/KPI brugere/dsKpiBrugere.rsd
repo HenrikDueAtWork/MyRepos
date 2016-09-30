@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>srcKpiBrugere</DataSourceReference>
+      <CommandText>SELECT        br.bruger_id, br.brugernavn, br.netid, br.email, br.administrator, br.rolle, br.skriveadgang, br.deCentralAdministrator, CASE WHEN bkr.bruger_id IS NOT NULL 
+                         THEN CONVERT(bit, 1) ELSE CONVERT(bit, 0) END AS kanSeKpi
+FROM            Bruger AS br LEFT OUTER JOIN
+                         Bruger_KPI_relation AS bkr ON br.bruger_id = bkr.bruger_id
+WHERE        (br.bruger_id &lt;&gt; 173)
+GROUP BY br.bruger_id, bkr.bruger_id, br.brugernavn, br.netid, br.email, br.administrator, br.rolle, br.skriveadgang, br.deCentralAdministrator
+ORDER BY br.brugernavn</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="bruger_id">
+        <DataField>bruger_id</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="brugernavn">
+        <DataField>brugernavn</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="netid">
+        <DataField>netid</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="email">
+        <DataField>email</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="kanSeKpi">
+        <DataField>kanSeKpi</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="administrator">
+        <DataField>administrator</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="rolle">
+        <DataField>rolle</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="skriveadgang">
+        <DataField>skriveadgang</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="deCentralAdministrator">
+        <DataField>deCentralAdministrator</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
