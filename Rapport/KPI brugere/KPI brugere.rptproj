@@ -17,12 +17,16 @@
       <FullPath>dsKpiBrugere.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>dsKpiMaal.rsd</Name>
+      <FullPath>dsKpiMaal.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>dsKpiRel.rsd</Name>
       <FullPath>dsKpiRel.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>dsKpiMaal.rsd</Name>
-      <FullPath>dsKpiMaal.rsd</FullPath>
+      <Name>dsGrafRel.rsd</Name>
+      <FullPath>dsGrafRel.rsd</FullPath>
     </ProjectItem>
   </DataSets>
   <Reports>
@@ -35,12 +39,16 @@
       <FullPath>Kpi.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>Maaltal.rdl</Name>
+      <FullPath>Maaltal.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Realiseret.rdl</Name>
       <FullPath>Realiseret.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Maaltal.rdl</Name>
-      <FullPath>Maaltal.rdl</FullPath>
+      <Name>Graf.rdl</Name>
+      <FullPath>Graf.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

@@ -806,6 +806,9 @@ IIF(((Variables!maalFebVaerdi.Value &lt; Fields!Februar.Value and UCase(Fields!R
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(fields!kilde.Value = "R",
+IIF(Variables!maalMarVaerdi.Value &lt;&gt; "0,00",
+IIF(((Variables!maalMarVaerdi.Value &lt; Fields!Marts.Value and UCase(Fields!Retning.Value) = "OP") or (Variables!maalMarVaerdi.Value &gt; Fields!Marts.Value and UCase(Fields!Retning.Value) = "NED")), "Green", "Red"), "White"), "White")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -836,6 +839,9 @@ IIF(((Variables!maalFebVaerdi.Value &lt; Fields!Februar.Value and UCase(Fields!R
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(fields!kilde.Value = "R",
+IIF(Variables!maalAprVaerdi.Value &lt;&gt; "0,00",
+IIF(((Variables!maalAprVaerdi.Value &lt; Fields!April.Value and UCase(Fields!Retning.Value) = "OP") or (Variables!maalAprVaerdi.Value &gt; Fields!April.Value and UCase(Fields!Retning.Value) = "NED")), "Green", "Red"), "White"), "White")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -866,6 +872,9 @@ IIF(((Variables!maalFebVaerdi.Value &lt; Fields!Februar.Value and UCase(Fields!R
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(fields!kilde.Value = "R",
+IIF(Variables!maalMajVaerdi.Value &lt;&gt; "0,00",
+IIF(((Variables!maalMajVaerdi.Value &lt; Fields!Maj.Value and UCase(Fields!Retning.Value) = "OP") or (Variables!maalMajVaerdi.Value &gt; Fields!Maj.Value and UCase(Fields!Retning.Value) = "NED")), "Green", "Red"), "White"), "White")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -896,6 +905,9 @@ IIF(((Variables!maalFebVaerdi.Value &lt; Fields!Februar.Value and UCase(Fields!R
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(fields!kilde.Value = "R",
+IIF(Variables!maalJunVaerdi.Value &lt;&gt; "0,00",
+IIF(((Variables!maalJunVaerdi.Value &lt; Fields!Juni.Value and UCase(Fields!Retning.Value) = "OP") or (Variables!maalJunVaerdi.Value &gt; Fields!Juni.Value and UCase(Fields!Retning.Value) = "NED")), "Green", "Red"), "White"), "White")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -926,6 +938,9 @@ IIF(((Variables!maalFebVaerdi.Value &lt; Fields!Februar.Value and UCase(Fields!R
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(fields!kilde.Value = "R",
+IIF(Variables!maalJulVaerdi.Value &lt;&gt; "0,00",
+IIF(((Variables!maalJulVaerdi.Value &lt; Fields!Juli.Value and UCase(Fields!Retning.Value) = "OP") or (Variables!maalJulVaerdi.Value &gt; Fields!Juli.Value and UCase(Fields!Retning.Value) = "NED")), "Green", "Red"), "White"), "White")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -989,6 +1004,9 @@ IIF(((Variables!maalAugVaerdi.Value &lt; Fields!August.Value and UCase(Fields!Re
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(fields!kilde.Value = "R",
+IIF(Variables!maalSepVaerdi.Value &lt;&gt; "0,00",
+IIF(((Variables!maalSepVaerdi.Value &lt; Fields!September.Value and UCase(Fields!Retning.Value) = "OP") or (Variables!maalSepVaerdi.Value &gt; Fields!September.Value and UCase(Fields!Retning.Value) = "NED")), "Green", "Red"), "White"), "White")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1019,6 +1037,9 @@ IIF(((Variables!maalAugVaerdi.Value &lt; Fields!August.Value and UCase(Fields!Re
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(fields!kilde.Value = "R",
+IIF(Variables!maalOktVaerdi.Value &lt;&gt; "0,00",
+IIF(((Variables!maalOktVaerdi.Value &lt; Fields!Oktober.Value and UCase(Fields!Retning.Value) = "OP") or (Variables!maalOktVaerdi.Value &gt; Fields!Oktober.Value and UCase(Fields!Retning.Value) = "NED")), "Green", "Red"), "White"), "White")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1049,6 +1070,9 @@ IIF(((Variables!maalAugVaerdi.Value &lt; Fields!August.Value and UCase(Fields!Re
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(fields!kilde.Value = "R",
+IIF(Variables!maalNovVaerdi.Value &lt;&gt; "0,00",
+IIF(((Variables!maalNovVaerdi.Value &lt; Fields!November.Value and UCase(Fields!Retning.Value) = "OP") or (Variables!maalNovVaerdi.Value &gt; Fields!November.Value and UCase(Fields!Retning.Value) = "NED")), "Green", "Red"), "White"), "White")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1079,12 +1103,16 @@ IIF(((Variables!maalAugVaerdi.Value &lt; Fields!August.Value and UCase(Fields!Re
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>=IIF(fields!kilde.Value = "R",
+IIF(Variables!maalDecVaerdi.Value &lt;&gt; "0,00",
+IIF(((Variables!maalDecVaerdi.Value &lt; Fields!December.Value and UCase(Fields!Retning.Value) = "OP") or (Variables!maalDecVaerdi.Value &gt; Fields!December.Value and UCase(Fields!Retning.Value) = "NED")), "Green", "Red"), "White"), "White")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1172,7 +1200,7 @@ IIF(((Variables!maalAugVaerdi.Value &lt; Fields!August.Value and UCase(Fields!Re
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Realiseret</Value>
+                    <Value>Matrix</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontWeight>Bold</FontWeight>
@@ -1243,6 +1271,33 @@ YRSwAKv2DvwQ9XSc6WYNWggwvHIJ3rQC+CN43c7+KG0d1vuwAnCZPEwIQEZtmnwZ5YJKS68AZuK3LSbS
     </Variable>
     <Variable Name="maalFebVaerdi">
       <Value>=Lookup("M",Fields!kilde.Value,Fields!Februar.Value,"DataSet1")</Value>
+    </Variable>
+    <Variable Name="maalMarVaerdi">
+      <Value>=Lookup("M",Fields!kilde.Value,Fields!Marts.Value,"DataSet1")</Value>
+    </Variable>
+    <Variable Name="maalAprVaerdi">
+      <Value>=Lookup("M",Fields!kilde.Value,Fields!April.Value,"DataSet1")</Value>
+    </Variable>
+    <Variable Name="maalMajVaerdi">
+      <Value>=Lookup("M",Fields!kilde.Value,Fields!Maj.Value,"DataSet1")</Value>
+    </Variable>
+    <Variable Name="maalJunVaerdi">
+      <Value>=Lookup("M",Fields!kilde.Value,Fields!Juni.Value,"DataSet1")</Value>
+    </Variable>
+    <Variable Name="maalJulVaerdi">
+      <Value>=Lookup("M",Fields!kilde.Value,Fields!Juli.Value,"DataSet1")</Value>
+    </Variable>
+    <Variable Name="maalSepVaerdi">
+      <Value>=Lookup("M",Fields!kilde.Value,Fields!September.Value,"DataSet1")</Value>
+    </Variable>
+    <Variable Name="maalOktVaerdi">
+      <Value>=Lookup("M",Fields!kilde.Value,Fields!Oktober.Value,"DataSet1")</Value>
+    </Variable>
+    <Variable Name="maalNovVaerdi">
+      <Value>=Lookup("M",Fields!kilde.Value,Fields!November.Value,"DataSet1")</Value>
+    </Variable>
+    <Variable Name="maalDecVaerdi">
+      <Value>=Lookup("M",Fields!kilde.Value,Fields!December.Value,"DataSet1")</Value>
     </Variable>
   </Variables>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
