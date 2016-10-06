@@ -4,10 +4,11 @@
     <Query>
       <DataSourceReference>srcKpiBrugere</DataSourceReference>
       <CommandText>SELECT        maal.kpi_id, maal.vaerdi AS Måltal, CASE WHEN (rel.vaerdi = 0 AND maal.vaerdi != 0) THEN maal.vaerdi ELSE rel.vaerdi END AS Realiseret, per.maanedsnavn, 
-                         per.måned
+                         per.måned, UPPER(Kpi.Retning) AS retning
 FROM            Maaltal AS maal INNER JOIN
                          periode AS per ON maal.periode_id = per.periode_id INNER JOIN
-                         realiseret AS rel ON maal.kpi_id = rel.kpi_id AND maal.periodevisning_id = rel.periodevisning_id AND maal.periode_id = rel.periode_id
+                         realiseret AS rel ON maal.kpi_id = rel.kpi_id AND maal.periodevisning_id = rel.periodevisning_id AND maal.periode_id = rel.periode_id INNER JOIN
+                         Kpi ON maal.kpi_id = Kpi.Kpi_id
 WHERE        (per.år = 2016) AND (maal.periodevisning_id = 1) AND (maal.kpi_id = 1020)</CommandText>
     </Query>
     <Fields>
@@ -30,6 +31,10 @@ WHERE        (per.år = 2016) AND (maal.periodevisning_id = 1) AND (maal.kpi_id 
       <Field Name="måned">
         <DataField>måned</DataField>
         <rd:TypeName>System.Byte</rd:TypeName>
+      </Field>
+      <Field Name="retning">
+        <DataField>retning</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
       </Field>
     </Fields>
   </DataSet>

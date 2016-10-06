@@ -73,9 +73,10 @@
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
+                        <UseValueAsLabel>true</UseValueAsLabel>
                       </ChartDataLabel>
                       <Style>
-                        <Color>LimeGreen</Color>
+                        <Color>=IIF(Fields!Realiseret.Value&lt;Fields!Måltal.Value,"Green","Red")</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -105,7 +106,7 @@
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Max(Fields!Måltal.Value)</Y>
+                        <Y>=Fields!Måltal.Value</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
