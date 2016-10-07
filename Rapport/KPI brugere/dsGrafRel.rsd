@@ -3,8 +3,9 @@
   <DataSet Name="">
     <Query>
       <DataSourceReference>srcKpiBrugere</DataSourceReference>
-      <CommandText>SELECT        maal.kpi_id, maal.vaerdi AS Måltal, CASE WHEN (rel.vaerdi = 0 AND maal.vaerdi != 0) THEN maal.vaerdi ELSE rel.vaerdi END AS Realiseret, per.maanedsnavn, 
-                         per.måned, UPPER(Kpi.Retning) AS retning
+      <CommandText>SELECT        maal.kpi_id, maal.vaerdi AS Måltal, rel.vaerdi AS realiseretNaaet, CASE WHEN (rel.vaerdi &gt;= maal.vaerdi) 
+                         THEN rel.vaerdi ELSE maal.vaerdi END AS RealiseretIkkeNaaet, CASE WHEN (rel.vaerdi &lt; maal.vaerdi) THEN rel.vaerdi ELSE maal.vaerdi END AS Fyld, 
+                         per.maanedsnavn, per.måned, UPPER(Kpi.Retning) AS retning
 FROM            Maaltal AS maal INNER JOIN
                          periode AS per ON maal.periode_id = per.periode_id INNER JOIN
                          realiseret AS rel ON maal.kpi_id = rel.kpi_id AND maal.periodevisning_id = rel.periodevisning_id AND maal.periode_id = rel.periode_id INNER JOIN
@@ -20,8 +21,16 @@ WHERE        (per.år = 2016) AND (maal.periodevisning_id = 1) AND (maal.kpi_id 
         <DataField>Måltal</DataField>
         <rd:TypeName>System.Double</rd:TypeName>
       </Field>
-      <Field Name="Realiseret">
-        <DataField>Realiseret</DataField>
+      <Field Name="realiseretNaaet">
+        <DataField>realiseretNaaet</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="RealiseretIkkeNaaet">
+        <DataField>RealiseretIkkeNaaet</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="Fyld">
+        <DataField>Fyld</DataField>
         <rd:TypeName>System.Double</rd:TypeName>
       </Field>
       <Field Name="maanedsnavn">

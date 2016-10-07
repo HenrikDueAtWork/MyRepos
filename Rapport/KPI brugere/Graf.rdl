@@ -15,8 +15,16 @@
           <DataField>Måltal</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="Realiseret">
-          <DataField>Realiseret</DataField>
+        <Field Name="realiseretNaaet">
+          <DataField>realiseretNaaet</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="RealiseretIkkeNaaet">
+          <DataField>RealiseretIkkeNaaet</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Fyld">
+          <DataField>Fyld</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="maanedsnavn">
@@ -27,6 +35,10 @@
           <DataField>måned</DataField>
           <rd:TypeName>System.Byte</rd:TypeName>
         </Field>
+        <Field Name="retning">
+          <DataField>retning</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
@@ -34,11 +46,11 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Chart Name="Chart3">
+          <Chart Name="Chart1">
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart3_CategoryGroup">
+                  <Group Name="Chart1_CategoryGroup">
                     <GroupExpressions>
                       <GroupExpression>=Fields!maanedsnavn.Value</GroupExpression>
                     </GroupExpressions>
@@ -58,25 +70,29 @@
                   <Label>Måltal</Label>
                 </ChartMember>
                 <ChartMember>
+                  <Label>realiseret Naaet</Label>
+                </ChartMember>
+                <ChartMember>
                   <Label>Måltal</Label>
+                </ChartMember>
+                <ChartMember>
+                  <Label>Fyld</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="Realiseret">
+                <ChartSeries Name="RealiseretIkkeNaaet">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <High>=IIF(Fields!måned.Value&lt;Month(Today),Fields!Måltal.Value,Nothing)</High>
-                        <Low>=Fields!Realiseret.Value</Low>
+                        <Y>=IIF(Fields!måned.Value&lt;Month(Today),Fields!Måltal.Value,nothing)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <UseValueAsLabel>true</UseValueAsLabel>
                       </ChartDataLabel>
                       <Style>
-                        <Color>=IIF(Fields!Realiseret.Value&lt;Fields!Måltal.Value,"Green","Red")</Color>
+                        <Color>Red</Color>
                       </Style>
                       <ChartMarker>
                         <Style />
@@ -84,7 +100,43 @@
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Type>Range</Type>
+                  <Type>Area</Type>
+                  <Style />
+                  <ChartEmptyPoints>
+                    <Style />
+                    <ChartMarker>
+                      <Style />
+                    </ChartMarker>
+                    <ChartDataLabel>
+                      <Style />
+                    </ChartDataLabel>
+                  </ChartEmptyPoints>
+                  <ValueAxisName>Primary</ValueAxisName>
+                  <CategoryAxisName>Primary</CategoryAxisName>
+                  <ChartSmartLabel>
+                    <CalloutLineColor>Black</CalloutLineColor>
+                    <MinMovingDistance>0pt</MinMovingDistance>
+                  </ChartSmartLabel>
+                </ChartSeries>
+                <ChartSeries Name="realiseretNaaet">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues>
+                        <Y>=Fields!realiseretNaaet.Value</Y>
+                      </ChartDataPointValues>
+                      <ChartDataLabel>
+                        <Style />
+                      </ChartDataLabel>
+                      <Style>
+                        <Color>Green</Color>
+                      </Style>
+                      <ChartMarker>
+                        <Style />
+                      </ChartMarker>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Type>Area</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -114,17 +166,54 @@
                       <Style>
                         <Border>
                           <Style>Dotted</Style>
+                          <Width>2pt</Width>
                         </Border>
                         <Color>Black</Color>
                       </Style>
                       <ChartMarker>
-                        <Type>Circle</Type>
+                        <Type>Auto</Type>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Line</Type>
+                  <Style />
+                  <ChartEmptyPoints>
+                    <Style />
+                    <ChartMarker>
+                      <Style />
+                    </ChartMarker>
+                    <ChartDataLabel>
+                      <Style />
+                    </ChartDataLabel>
+                  </ChartEmptyPoints>
+                  <ValueAxisName>Primary</ValueAxisName>
+                  <CategoryAxisName>Primary</CategoryAxisName>
+                  <ChartSmartLabel>
+                    <CalloutLineColor>Black</CalloutLineColor>
+                    <MinMovingDistance>0pt</MinMovingDistance>
+                  </ChartSmartLabel>
+                </ChartSeries>
+                <ChartSeries Name="Fyld">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues>
+                        <Y>=Fields!Fyld.Value</Y>
+                      </ChartDataPointValues>
+                      <ChartDataLabel>
+                        <Style />
+                      </ChartDataLabel>
+                      <Style>
+                        <Color>Yellow</Color>
+                      </Style>
+                      <ChartMarker>
+                        <Style />
+                      </ChartMarker>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Type>Area</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -157,9 +246,6 @@
                         <FontSize>8pt</FontSize>
                       </Style>
                     </ChartAxisTitle>
-                    <Interval>2</Interval>
-                    <IntervalType>Default</IntervalType>
-                    <LabelInterval>1</LabelInterval>
                     <ChartMajorGridLines>
                       <Enabled>False</Enabled>
                       <Style>
@@ -180,10 +266,8 @@
                       <Length>0.5</Length>
                     </ChartMinorTickMarks>
                     <CrossAt>NaN</CrossAt>
-                    <Interlaced>true</Interlaced>
                     <Minimum>NaN</Minimum>
                     <Maximum>NaN</Maximum>
-                    <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
                     <ChartAxisScaleBreak>
                       <Style />
                     </ChartAxisScaleBreak>
@@ -230,10 +314,9 @@
                   <ChartAxis Name="Primary">
                     <Style>
                       <FontSize>8pt</FontSize>
-                      <Format>0.00;(0.00)</Format>
                     </Style>
                     <ChartAxisTitle>
-                      <Caption>="KPI ID  " &amp; Fields!kpi_id.Value</Caption>
+                      <Caption>Axis Title</Caption>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
@@ -257,8 +340,8 @@
                       <Length>0.5</Length>
                     </ChartMinorTickMarks>
                     <CrossAt>NaN</CrossAt>
-                    <Minimum>=0</Minimum>
-                    <Maximum>=Max(Fields!Realiseret.Value) + 100</Maximum>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
                     <ChartAxisScaleBreak>
                       <Style />
                     </ChartAxisScaleBreak>
@@ -306,7 +389,7 @@
               </ChartArea>
             </ChartAreas>
             <ChartLegends>
-              <ChartLegend Name="Realiseret">
+              <ChartLegend Name="Default">
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>8pt</FontSize>
@@ -351,8 +434,10 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>dsGrafRel</DataSetName>
-            <Height>12.21995cm</Height>
-            <Width>32.19979cm</Width>
+            <Top>0.42016cm</Top>
+            <Left>0.28787cm</Left>
+            <Height>12.72583cm</Height>
+            <Width>29.61917cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -363,10 +448,10 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>4.811in</Height>
+        <Height>5.52975in</Height>
         <Style />
       </Body>
-      <Width>12.67708in</Width>
+      <Width>13.09375in</Width>
       <Page>
         <PageHeight>21cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>
